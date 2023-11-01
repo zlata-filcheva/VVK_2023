@@ -138,6 +138,9 @@ void StudentuRusiavimas::createFile() {
 }
 
 void StudentuRusiavimas::writeFile() {
+    //TODO: fix
+    const string DEFAULT_FILE_NAME = "";
+
     ofstream fileOut;
 
     fileOut.open(DEFAULT_FILE_NAME, ios_base::app);
@@ -157,6 +160,9 @@ void StudentuRusiavimas::writeFile() {
 
 void StudentuRusiavimas::readFile() {
     vector<vector<string>> modifiedVector;
+
+    //TODO: fix
+    const string DEFAULT_FILE_NAME = "";
 
     ifstream fileIn(DEFAULT_FILE_NAME);
 
@@ -214,13 +220,13 @@ void StudentuRusiavimas::readFile() {
 
             if (surnameA == surname)
                 return surnameA < surnameB;
-            else if (surnameB == SURNAME_LT)
+            else if (surnameB == surname)
                 return surnameB < surnameA;
 
             return surnameA < surnameB;
         });
 
-    for (const vector sVector : modifiedVector) {
+    for (const vector<string> sVector : modifiedVector) {
         for (const string& dataString : sVector) {
             string stringMixin;
             const int mixinLength = STRING_MIXIN_SIZE - (int)dataString.size();
